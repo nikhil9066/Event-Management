@@ -1,0 +1,58 @@
+@import url(https://fonts.googleapis.com/css?family=Bangers);
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+.gallery {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  white-space: nowrap;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  background-color: #000;
+}
+.gallery__item {
+  display: inline-block;
+  width: 20%;
+  height: 100%;
+  position: relative;
+  background-color: #000;
+  opacity: 0.5;
+  position: relative;
+  overflow: hidden;
+  visibility: hidden;
+}
+.gallery__item:hover {
+  cursor: pointer;
+}
+.gallery__image {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-size: auto 140%;
+  background-position: top center;
+  margin: 0;
+  z-index: 10;
+}
+.gallery__content {
+  position: absolute;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 20;
+  color: #fff;
+}
+.gallery__title {
+  font-size: 4rem;
+  font-family: 'bangers';
+  margin: 0;
+  color: #fff;
+  opacity: 0;
+  visibility: hidden;
+}
