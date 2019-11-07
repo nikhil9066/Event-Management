@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Services</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">s
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{{url_for('static',filename='fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='lightgallery.css')}}"> 
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='fonts/flaticon/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='swiper.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='aos.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='photographerstyle.css')}}">
+    <script  src="{{url_for('static',filename='cookie.js')}}"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+  </head>
+  <body>
+  <div class="site-wrap">
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3 border-bottom" role="banner">
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Photo</a></h1>
+          </div>
+        </div>
+      </div>
+    </header>
+  <div class="site-section"  data-aos="fade">
+    <div class="container-fluid">
+      
+      <div class="row justify-content-center">
+        <div class="col-md-7">
+          <div class="row mb-5">
+            <div class="col-12 ">
+              <h1 class="site-section-heading text-center">{{photographer['Name']}}</h1>
+              <h2 class="site-section-heading text-center">Our Services</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
+              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
+                <span class="icon flaticon-camera display-3 text-primary mb-4 d-block"></span>
+                <h3 class="text-black h4">Camera</h3>
+                <p>People spot a big black lens, and they worry about what they’re doing, or how their hair looks. Nobody see the person holding the camera.</p>
+                <p><strong class="font-weight-bold text-primary">₹​{{photographer['Rates']['Camera']}}</strong></p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
+              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
+                <span class="icon flaticon-picture display-3 text-primary mb-4 d-block"></span>
+                <h3 class="text-black h4">Wedding Photography</h3>
+                <p>When people look at my pictures I want them to feel the way they do when they want to read a line of a poem twice</p>
+                <p><strong class="font-weight-bold text-primary">₹​{{photographer['Rates']['Wedding']}}</strong></p>
+              </div>
+          
+            </div>
+
+            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
+              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
+                <span class="icon flaticon-frame display-3 text-primary mb-4 d-block"></span>
+                <h3 class="text-black h4">Portrait</h3>
+                <p>You don’t make a photograph just with a camera. You bring to the act of photography all the pictures you have seen, the books you have read, the music you have heard, the people you have loved</p>
+                <p><strong class="font-weight-bold text-primary">₹​{{photographer['Rates']['Potrait']}}</strong></p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
+              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
+                <span class="icon flaticon-eiffel-tower display-3 text-primary mb-4 d-block"></span>
+                <h3 class="text-black h4">Honey moon</h3>
+                <p>When you photograph people in color, you photograph their clothes. But when you photograph people in Black and white, you photograph their souls!</p>
+                <p><strong class="font-weight-bold text-primary">₹​{{photographer['Rates']['Honeymoon']}}</strong></p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
+              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
+                <span class="icon flaticon-video-play display-3 text-primary mb-4 d-block"></span>
+                <h3 class="text-black h4">Video Editing</h3>
+                <p>What I’m trying to say is find ways to inspire yourself and your clients by taking on challenges and thinking fast in situations that aren’t inspiring, make them inspiring</p>
+                <p><strong class="font-weight-bold text-primary">₹​{{photographer['Rates']['Video Editing']}}</strong></p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-4 text-center mb-5 mb-lg-5">
+              <div class="h-100 p-4 p-lg-5 bg-light site-block-feature-7">
+                <span class="icon flaticon-video-play display-3 text-primary mb-4 d-block"></span>
+                <h3 class="text-black h4">Drone</h3>
+                <p>What I’m trying to say is find ways to inspire yourself and your clients by taking on challenges and thinking fast in situations that aren’t inspiring, make them inspiring</p>
+                <p><strong class="font-weight-bold text-primary">₹​{{photographer['Rates']['Drone']}}</strong></p>
+              </div>
+            </div>
+        <div>
+          <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CSS Button 2</title>
+      <!-- <link rel="stylesheet" href="css/style.css"> -->
+      <style type="text/css">
+        @import url("https://fonts.googleapis.com/css?family=Open+Sans");
+body {
+  background: linear-gradient(35deg, #000000, #3C6B7C 100%);
+}
+
+.container {
+  transition: all 0.3s ease ;
+  margin:auto ! important;
+  justify-content: center ; 
+  align-self: center ;  
+  align-content: center ;
+  text-align: center;
+}
+
+.wrap {
+  border: 2px solid #FFF;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+  padding:10px;
+}
+
+.mycenter{
+  margin:auto;
+}
+.second {
+  opacity: 0;
+  height: 0 ; 
+}
+
+.container:hover {
+  width: 280px;
+}
+.container:hover .wrap {
+  padding : 20px ;
+  color : white ; 
+}
+.container:hover .second {
+  opacity: 1 ;
+  height: 100% ;
+  color:white ;  
+}
+      </style>
+</head>
+<body>
+  <div class="container">
+  <div class="wrap">
+    <a onclick="submit();">
+    <div class="first">INTERESTED</div>
+      <div class="second">CLICK TO RESERVE   </div>
+    </a>
+  </div>
+</div>
+</body>
+</html>
+        </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer py-4">
+    <div class="container-fluid text-center">
+    </div>
+  </div>
+  </div>
+  <script src="{{url_for('static',filename='jquery-3.3.1.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery-ui.js')}}"></script>
+  <script src="{{url_for('static',filename='popper.min.js')}}"></script>
+  <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='owl.carousel.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.stellar.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.countdown.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{url_for('static',filename='bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{url_for('static',filename='swiper.min.js')}}"></script>
+  <script src="{{url_for('static',filename='aos.js')}}"></script>
+  <script src="{{url_for('static',filename='picturefill.min.js')}}"></script>
+  <script src="{{url_for('static',filename='lightgallery-all.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.mousewheel.min.js')}}"></script>
+  <script src="{{url_for('static',filename='main.js')}}"></script>
+  <script>
+    ₹​(document).ready(function(){
+      ₹​('#lightgallery').lightGallery();
+
+  </script>
+  
+   <script type="text/javascript">
+      var config = {
+      apiKey: "AIzaSyC1L40FBdKUsGuXf6rC9WQ2gC2kAJgaI8M",
+      authDomain: "event-ab123.firebaseapp.com",
+      databaseURL: "https://event-ab123.firebaseio.com",
+      projectId: "event-ab123",
+      storageBucket: "event-ab123.appspot.com",
+      messagingSenderId: "440965100648"
+  };
+  firebase.initializeApp(config);
+  var email=getCookie('email');
+  var password=getCookie('password');
+  var user;
+  var ref;
+  firebase.auth().signInWithEmailAndPassword(email,password).catch(function(error) {
+      window.location.href="login"
+  }).then(function() {
+    user=firebase.auth().currentUser.uid;
+  });
+      function submit() 
+      {
+        user=firebase.auth().currentUser.uid;
+        ref=firebase.database().ref('users/'+user+'/photo');
+        ref.set({
+          'pid':'{{pid}}'
+        }).then(function() {
+          alert('Photographer Reserved');
+          window.location.href="/musicload";
+        })
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Coose ur Artist</title>
+  
+  
+  
+      <link rel="stylesheet" href="{{url_for('static',filename='musicstyle.css')}}">
+
+  
+</head>
+
+<body>
+
+  <div class="container">
+  <div class="box">
+    <div class="widget">
+      <div class="text-1" onclick="document.location.href='/artist/ar01'">
+        <p>{{artists['ar01']['Name']}}</p>
+        <p>{{artists['ar01']['Desc']}}</p>
+      </div>
+      <div class="text-2" onclick="document.location.href='/artist/ar02'">
+        <p>{{artists['ar02']['Name']}}</p>
+        <p>{{artists['ar02']['Desc']}}</p>
+      </div>
+      <div class="text-3" onclick="document.location.href='/artist/ar03'">
+        <p>{{artists['ar03']['Name']}}</p>
+        <p>{{artists['ar03']['Desc']}}</p>
+      </div>
+      <div class="text-4" onclick="document.location.href='/artist/ar04'">
+        <p>{{artists['ar04']['Name']}}</p>
+        <p>{{artists['ar04']['Desc']}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+  <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+
+  
+
+    <script  src="{{url_for('static',filename='musicindex.js')}}"></script>
+
+
+
+  
+</body>
+
+</html>

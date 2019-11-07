@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>500 Error Page Challenge</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="{{url_for('static',filename='error500/css/style.css')}}">
+
+  
+</head>
+
+<body>
+
+  <div class="full-screen">
+      <div class='container'>
+        <span class="error-num">5</span>
+        <div class='eye'></div>
+        <div class='eye'></div>
+
+        <p class="sub-text">Oh eyeballs! Something went wrong. We're <span class="italic">looking</span> to see what happened.</p>
+        <a href="/introl">Go back</a>
+      </div>
+    </div>
+  
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+  <script  src="{{url_for('static',filename='error500/js/index.js')}}"></script>
+
+
+
+
+</body>
+
+</html>

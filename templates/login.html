@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en" >
+    <head>
+        <meta charset="UTF-8">
+        <title>Login-Registration</title>
+        <script  src="{{url_for('static',filename='cookie.js')}}"></script>
+        <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
+        <link rel="stylesheet" href="{{url_for('static',filename='login.css')}}">
+    </head>
+    <body>
+        <p class="tip"></p>
+        <p class="tip"></p>
+        <p class="tip"></p>
+        <div class="cont">
+            <div class="form sign-in">
+                <h2>Welcome back,</h2>
+                <label>
+                    <span>Email</span>
+                    <input type="email" id="email" />
+                </label>
+                <label>
+            	    <span>Password</span>
+                    <input type="password" id="password" />
+                </label>
+                <p class="forgot-pass">Forgot password?</p>
+                <button type="button" class="submit" onclick="login();">Sign In</button>
+            </div>
+			<div class="sub-cont">
+				<div class="img">
+					<div class="img__text m--up">
+						<h2>New here?</h2>
+						<p>Sign up and discover great amount of new opportunities!</p>
+					</div>
+					<div class="img__text m--in">
+						<h2>One of us?</h2>
+						<p>If you already has an account, just sign in. We've missed you!</p>
+					</div>
+					<div class="img__btn">
+						<span class="m--up">Sign Up</span>
+						<span class="m--in">Sign In</span>
+					</div>
+				</div>
+				<div class="form sign-up">
+					<h2>Time to feel like home,</h2>
+					<label>
+						<span>Name</span>
+						<input type="text" id="sname" />
+					</label>
+					<label>
+						<span>Email</span>
+						<input type="email" id="semail" />
+					</label>
+					<label>
+						<span>Password</span>
+						<input type="password" id="spassword" />
+					</label>
+					<label>
+						<span>Re Enter Password</span>
+						<input type="password" id="spassword1" />
+					</label>
+					<button type="button" class="submit" onclick="signup();">Sign Up</button>
+				</div>
+			</div>
+		</div>
+		<script  src="{{url_for('static',filename='login.js')}}"></script>
+	</body>
+	<script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+	<script type="text/javascript">
+	    var config = {
+		    apiKey: "AIzaSyC1L40FBdKUsGuXf6rC9WQ2gC2kAJgaI8M",
+		    authDomain: "event-ab123.firebaseapp.com",
+		    databaseURL: "https://event-ab123.firebaseio.com",
+		    projectId: "event-ab123",
+		    storageBucket: "event-ab123.appspot.com",
+		    messagingSenderId: "440965100648"
+		};
+		firebase.initializeApp(config);
+			function login() {
+		    var email=document.getElementById('email').value;
+		    var password=document.getElementById('password').value;
+		    firebase.auth().signInWithEmailAndPassword(email,password).then(function() {
+		        setCookie('email',email,0.5);
+		        setCookie('password',password,0.5);
+		        alert('login Successful');
+		        document.location.href="./introl";
+		    }).catch(function(error) {
+		        alert(error.message);
+		    });
+		}
+	    function signup() 
+	    {
+	        var email=document.getElementById('semail').value;
+	        var password=document.getElementById('spassword').value;
+	        var password1=document.getElementById('spassword1').value;
+	        var name=document.getElementById('sname').value;
+	        if(password!=password1)
+	        {
+	            alert("Passwords doesn't match");
+	            return;
+	        }
+	        firebase.auth().createUserWithEmailAndPassword(email,password).then(function() {
+	            var userId = firebase.auth().currentUser.uid;
+	            var ref = firebase.database().ref();
+	            var userRef = ref.child("users").child(userId);
+	            userRef.set({
+	                'Name':name
+	            }).then(function() {
+	            	alert('Signup Successful');
+	            	document.location.href="./login";
+	            })
+	            
+	        }).catch(function(error) {
+	            alert(error.message);
+	        });
+	    }
+	</script>
+</html>

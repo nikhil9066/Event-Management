@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Count</title>
+	<script  src="{{url_for('static',filename='cookie.js')}}"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+</head>
+<body>
+<h1 id="count"></h1>
+
+</body>
+<script type="text/javascript">
+    var config = {
+        apiKey: "AIzaSyC1L40FBdKUsGuXf6rC9WQ2gC2kAJgaI8M",
+        authDomain: "event-ab123.firebaseapp.com",
+        databaseURL: "https://event-ab123.firebaseio.com",
+        projectId: "event-ab123",
+        storageBucket: "event-ab123.appspot.com",
+        messagingSenderId: "440965100648"
+    };
+    firebase.initializeApp(config);
+    var email=getCookie('email');
+    var password=getCookie('password');
+    ref=firebase.database().ref('users/gYSBAGBDSYYEQ67xlSZZXjrTdOh1');
+    ref.on('child_changed',function(data) {
+    	if(data.key=='count')
+    		document.getElementById('count').innerHTML=data.val()
+    })
+</script>
+</html>

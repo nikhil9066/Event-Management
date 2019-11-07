@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Form</title>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+
+<link rel="stylesheet" href="{{url_for('static',filename='form/css/bootstrap.min.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='form/css/font-awesome.min.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='form/css/magnific-popup.css')}}">
+
+
+<link rel="stylesheet" href="{{url_for('static',filename='form/css/bootstrap.min.css')}}">
+<link rel="{{url_for('static',filename='form/stylescss/font-awesome.min.css')}}">
+
+
+<link rel="stylesheet" href="{{url_for('static',filename='form/css/style.css')}}">
+<link rel="stylesheet" href="{{url_for('static',filename='form/css/style.css')}}">
+<link href="https://fonts.googleapis.com/css?family=Lora|Merriweather:300,400" rel="stylesheet">
+<script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+<script src="{{url_for('static',filename='cookie.js')}}"></script>
+
+</head>
+<body>
+
+
+
+
+
+
+
+<div class="navbar navbar-default navbar-static-top" role="navigation">
+     <div class="container">
+
+          
+
+  </div>
+</div>
+
+     <section id="contact" >
+     <div class="container">
+          <div class="row">
+
+               <div class="col-md-offset-1 col-md-10 col-sm-12">
+                   
+                    <h2 style="text-align: center;justify-content: center;">Enter the details</h2>
+
+                    <div id="form">
+                         <div class="col-md-4 col-sm-4">
+                              <input name="name" type="text"  onkeypress="return isnumKey(event)"  class="form-control" id="groomname" placeholder="Groom name" required="True">
+                         </div>
+                         <div class="col-md-4 col-sm-4">
+                              <input name="date" type="text"  onkeypress="return isnumKey(event)"  class="form-control" id="bridename" placeholder="bridename" required="True">
+                          </div>
+                         <div class="col-md-4 col-sm-4">
+                              <input name="location" type="text"  onkeypress="return isnumKey(event)"  class="form-control" id="groomfathername" placeholder="Groom Father name" required="True">
+                          </div>
+                          <div class="col-md-4 col-sm-4">
+                              <input name="text" type="text"  onkeypress="return isnumKey(event)"  class="form-control" id="groommothername" placeholder="Groom Mother name" required="True">
+                          </div>
+                         <div class="col-md-12 col-sm-12">
+                               <input name="text" type="text"  onkeypress="return isnumKey(event)"  class="form-control" id="bridefathername" placeholder="Bride Father name" required="True">
+                         </div>
+                         <div class="col-md-12 col-sm-12">
+                              <input name="text" type="text"  onkeypress="return isnumKey(event)"  class="form-control" id="bridemothername" placeholder="Bride Mother name" required="True">
+                         </div>
+                         <div class="col-md-12 col-sm-12">
+                            <label for="groomimage">Select Groom Image</label>
+                             <input type="file" id="groomimage" onclick="selectgroomimage(event);">
+                         </div>
+                         <div class="col-md-12 col-sm-12">
+                          <label for="brideimage">Select Bride Image</label>
+                              <input type="file" id="brideimage" onclick="selectbrideimage(event);">
+                         </div>
+                         <div class="col-md-12 col-sm-12">
+                          <label>Couple Pic</label>
+                             <input type="file">
+                         </div>
+                         <div class="col-md-12 col-sm-12">
+                          <label>Couple Pic</label>
+                              <input type="file">
+                         </div>
+                         <div class="col-md-12 col-sm-12">
+                          <label>Couple Pic</label>
+                              <input type="file">
+                         </div>
+                        <div class="col-md-3 col-sm-6">
+                           <label for="date">Marriage Date</label>
+                              <input style="height: 40px;width: 100px;" pattern="Approx no of people" type="date" min="20" max="1000" id="date" required="True">
+                         </div>
+                         <div class="col-md-3 col-sm-6">
+                           <label for="repdate">Reception Date</label>
+                              <input style="height: 40px;width: 100px;" pattern="Approx no of people" type="date" min="20" max="1000" id="repdate" required="True">
+                         </div>
+                         <div class="col-md-3 col-sm-6">
+                           Apporx. count of people
+                              <input style="height: 40px;width: 100px;" pattern="Approx no of people" type="number" min="20" max="1000" id="peoplecount" required="True">
+                         </div>
+
+                          <div class="col-md-12 col-sm-12">
+
+                            <input name="name" type="text"  onkeypress="return isnumKey(event)"  class="form-control" id="place" placeholder="place" required="True">
+                         </div>
+                         <div class="col-md-12 col-sm-12">
+                              
+                             <input name="name" type="text" onkeypress="return ischarKey(event)"  class="form-control" id="contact1" placeholder="contact number" required="True">
+                         </div>
+                        <div class="col-md-3 col-sm-6">
+                              <input name="submit" type="submit" class="form-control" id="submit" value="Save Changes" onclick="submit();">
+                         </div>
+                    </div>
+               </div>
+
+          </div>
+     </div>
+</section>
+      
+<script type="text/javascript">
+
+  function isnumKey(evt){
+      var charcode = (evt.which) ? evt.which : evt.keyCode;
+      if(charcode>31 && (charcode<48 || charcode>57))
+        return true;
+      else 
+        return false;
+    }
+
+
+
+  function ischarKey(evt){
+      var charcode = (evt.which) ? evt.which : evt.keyCode;
+      if(charcode>31 && (charcode<48 || charcode>57))
+        return false;
+      else 
+        return true;
+    }
+ </script>
+<script type="text/javascript">
+  var config = {
+      apiKey: "AIzaSyC1L40FBdKUsGuXf6rC9WQ2gC2kAJgaI8M",
+      authDomain: "event-ab123.firebaseapp.com",
+      databaseURL: "https://event-ab123.firebaseio.com",
+      projectId: "event-ab123",
+      storageBucket: "event-ab123.appspot.com",
+      messagingSenderId: "440965100648"
+  };
+  firebase.initializeApp(config);
+  var email=getCookie('email');
+  var password=getCookie('password');
+  var user;
+  var ref;
+  firebase.auth().signInWithEmailAndPassword(email,password).catch(function(error) {
+      window.location.href="login"
+  }).then(function() {
+    user=firebase.auth().currentUser.uid;
+    database=firebase.database();
+    ref=database.ref('/users/'+user+'/');
+    ref.once('value',function(snapshot) {
+      if(snapshot.hasChild('groomname'))
+      {
+        window.location.href="accordino"
+      }
+    });
+  });
+  
+  var groomimage, brideimage;
+  function selectgroomimage(event) {
+    groomimage=event;
+  }
+  function selectbrideimage(event) {
+    brideimage=event;
+  }
+  function submit() 
+  {
+    var file=groomimage.target.files[0];
+    var ref1=firebase.storage().ref('users/'+user+'/groomimage')
+    var task1=ref1.put(file);
+    task1.on('state_changed',
+      function progress(snapsot){
+
+            },
+            function error(err){
+                alert(err.message);
+            },
+            function complete()
+            {
+                task1.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                    ref.update({
+                      'groomimgurl':downloadURL
+                    }).then(function() {
+              var file=brideimage.target.files[0];
+              var ref2=firebase.storage().ref('users/'+user+'/brideimage')
+            var task2=ref2.put(file);
+            task2.on('state_changed',
+              function progress(snapsot){
+
+                    },
+                    function error(err){
+                        alert(err.message);
+                    },
+                    function complete()
+                    {
+                        task2.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+                            ref.update({
+                              'brideimgurl':downloadURL
+                            }).then(function() {
+                              var groomname=document.getElementById('groomname').value;
+                              var bridename=document.getElementById('bridename').value;
+                              var groomfathername=document.getElementById('groomfathername').value;
+                              var groommothername=document.getElementById('groommothername').value;
+                              var bridefathername=document.getElementById('bridefathername').value;
+                              var bridemothername=document.getElementById('bridemothername').value;
+                              var peoplecount=document.getElementById('peoplecount').value;
+                              var place=document.getElementById('place').value;
+                              var contact=document.getElementById('contact1').value;
+                              var date=document.getElementById('date').value;
+                              var repdate=document.getElementById('repdate').value;
+
+                              if ((groomname==" " )|| bridename ==" "|| groomfathername=="" || groommothername==" "|| bridefathername==" "|| bridemothername==" "|| place==" "|| contact==""){
+                                window.alert("cant be emplty");
+                                // groomname.focus();
+                                return;
+                              }
+                              alert(contact);
+                              var con = contact.length;
+                              if(con<10 || con >10){
+                                window.alert("contact number should be 10 digit")
+                                return;
+                              }
+                              
+
+                              
+
+
+
+
+                              // var emailid = document.forms['reg']['email'];
+                              // if (groomname == " "){
+                              //  groomname.focus();
+                              //  alert("cant be empty");
+                              // }
+
+
+
+
+                              ref.update({
+                                'groomname':groomname,
+                                'bridename':bridename,
+                                'groomfathername':groomfathername,
+                                'groommothername':groommothername,
+                                'bridefathername':bridefathername,
+                                'bridemothername':bridemothername,
+                                'peoplecount':peoplecount,
+                                'place':place,
+                                'date':date,
+                                'repdate':repdate,
+                                'contact':contact
+                              }).then(function() {
+                                alert('Marriage details entered successfully');
+                                window.location.href="accordino";
+                              })
+                            })
+                      })
+                    }
+                )
+            })
+              })
+      }
+    )
+}
+
+</script>
+
+</body>
+<script src="{{url_for('static',filename='form/js/jquery.js')}}"></script>
+<script src="{{url_for('static',filename='form/js/bootstrap.min.js')}}"></script>
+<script src="{{url_for('static',filename='form/js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{url_for('static',filename='form/js/magnific-popup-options.js')}}"></script>
+<script src="{{url_for('static',filename='form/js/jquery.parallax.js')}}"></script>
+<script src="{{url_for('static',filename='form/js/custom.js')}}"></script>
+</html>

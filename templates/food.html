@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Selection</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{url_for('static',filename='food/css/animate.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='food/css/style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='food/css/style1.css')}}">
+    <script  src="{{url_for('static',filename='cookie.js')}}"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+  </head>
+  <body>
+    <section class="ftco-section bg-light">
+      <div class="container">
+        <div class="row justify-content-center mb-5 pb-5">
+          <div class="col-md-7 text-center heading-section ftco-animate">
+            <span class="subheading">Our Menu</span>
+            <h2>MENU </h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 dish-menu">
+
+            <div class="nav nav-pills justify-content-center ftco-animate" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+              
+              <a class="nav-link py-3 px-4" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false"><span class="flaticon-beer"></span> Morning Food</a>
+
+              <a class="nav-link py-3 px-4" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false"><span class="flaticon-cheers"></span>Afternoon/Night Food</a>
+
+
+              <a class="nav-link py-3 px-4" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="false"><span class="flaticon-cheers"></span> Chats</a>
+
+            </div>
+
+
+            <div class="tab-content py-5" id="v-pills-tabContent">
+              <div class="tab-pane fade show active" id="v-pills-profile1" role="tabpanel" aria-labelledby="v-pills-profile1-tab">
+              </div>
+
+              <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/1.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>ALU PARATA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹30</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/2.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>POORI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹30</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/3.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>DHOKLA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹15</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/4.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>Masala Tava Idly</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹20</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/5.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>LEMON RICE</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹20</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/6.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>MASALA DOSA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹25</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/7.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>RAGI ROTI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹25</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/8.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>RAVA DOSA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹30</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/9.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>RICE BATH</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹20</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/m/10.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>TEA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹10</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div><!-- END -->
+
+              
+              
+
+              <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/1.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>KOSAMBRI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹5</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/2.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>PAISA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹5</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/3.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>BELE-BATH</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹25</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/4.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>CHUTNEY</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹5</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/5.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>DAL</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹10</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/6.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>MANCHURI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹35</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/7.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>RICE</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹25</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/8.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>RASAM</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹10</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/9.jpg')}})"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>ICE CREAM</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹15</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/n/10.jpg')}})"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>BEEDA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹15</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="tab-pane fade" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/1.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>BONDA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹10</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/2.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>DAHI PURI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹30</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/3.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>CUTLET</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹20</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/4.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>VADE</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹15</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/5.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>PANI PURI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹25</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/6.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>SEV PURI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹25</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/7.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>JAMOON</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹15</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/8.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>SAMOSA</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹20</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/9.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>MACARONI</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹40</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="menus d-flex ftco-animate">
+                      <div class="menu-img" style="background-image: url({{url_for('static',filename='food/images/c/10.jpg')}});"></div>
+                      <div class="text d-flex">
+                        <div class="one-half">
+                          <h3>JUICE</h3>
+                        </div>
+                        <div class="one-forth">
+                          <span class="price">₹30</span>
+                          <div class='checkboxes'>
+                            <label class='checkbox'>
+                              <input type='checkbox'>
+                              <span class='indicator'></span>
+                              want
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+        <textarea style="width: 100%" rows="5" id="extra"></textarea>
+        <button onclick="submit();">Click</button>
+      </div>
+    </section>
+    
+    
+<!--    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea> -->
+
+
+  <!-- loader -->
+  <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F7444E"/></svg></div>
+
+
+  <script src="{{url_for('static',filename='food/js/jquery.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/popper.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/jquery.easing.1.3.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/jquery.waypoints.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/jquery.stellar.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/owl.carousel.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/aos.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/jquery.animateNumber.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/bootstrap-datepicker.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/jquery.timepicker.min.js')}}"></script>
+  <script src="{{url_for('static',filename='food/js/main.js')}}"></script>
+    <script  src="{{url_for('static',filename='food/js/index.js')}}"></script>
+  </body>
+
+  <script type="text/javascript">
+    var config = {
+      apiKey: "AIzaSyC1L40FBdKUsGuXf6rC9WQ2gC2kAJgaI8M",
+      authDomain: "event-ab123.firebaseapp.com",
+      databaseURL: "https://event-ab123.firebaseio.com",
+      projectId: "event-ab123",
+      storageBucket: "event-ab123.appspot.com",
+      messagingSenderId: "440965100648"
+  };
+  firebase.initializeApp(config);
+  var email=getCookie('email');
+  var password=getCookie('password');
+  var user;
+  var ref;
+  firebase.auth().signInWithEmailAndPassword(email,password).catch(function(error) {
+      window.location.href="login"
+  }).then(function() {
+    user=firebase.auth().currentUser.uid;
+  });
+    function submit() {
+      user=firebase.auth().currentUser.uid;
+      breakfast={}
+      morningfood=document.getElementById('v-pills-profile').getElementsByClassName('menus');
+      for(i=0;i<morningfood.length;i++)
+      {
+        if(morningfood[i].getElementsByTagName('input')[0].checked)
+          breakfast[morningfood[i].getElementsByTagName('h3')[0].innerHTML]=(morningfood[i].getElementsByTagName('span')[0].innerHTML).slice(1);
+      }
+      lunch={}
+      afternoonfood=document.getElementById('v-pills-messages').getElementsByClassName('menus');
+      for(i=0;i<afternoonfood.length;i++)
+      {
+        if(afternoonfood[i].getElementsByTagName('input')[0].checked)
+          lunch[afternoonfood[i].getElementsByTagName('h3')[0].innerHTML]=(afternoonfood[i].getElementsByTagName('span')[0].innerHTML).slice(1);
+      }
+      snacks={}
+      eveningfood=document.getElementById('v-pills-home').getElementsByClassName('menus');
+      for(i=0;i<eveningfood.length;i++)
+      {
+        if(eveningfood[i].getElementsByTagName('input')[0].checked)
+          snacks[eveningfood[i].getElementsByTagName('h3')[0].innerHTML]=(eveningfood[i].getElementsByTagName('span')[0].innerHTML).slice(1);
+      }
+      ref=firebase.database().ref('users/'+user+'/food')
+      ref.set({
+        'breakfast':breakfast,
+        'lunch':lunch,
+        'snacks':snacks,
+        'extra':document.getElementById('extra').value,
+        'cid':'{{cid}}'
+      }).then(function() {
+        alert('Food Menu Noted');
+        window.location.href=('/process/'+user);
+      })
+    }
+  </script>
+</html>

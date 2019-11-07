@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <script  src="{{url_for('static',filename='cookie.js')}}"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.5/firebase.js"></script>
+    <title>Music</title>
+
+    <link rel="icon" href="img/core-img/favicon.ico">
+    <link rel="stylesheet" href="{{url_for('static',filename='music_style.css')}}">
+
+</head>
+
+<body>
+    <!-- ##### Preloader ##### -->
+    <div class="preloader d-flex align-items-center justify-content-center">
+        <div class="circle-preloader">
+            <img src="{{url_for('static',filename='compact-disc.png')}}" alt="">
+        </div>
+    </div>
+
+    <!-- ##### Header Area Start ##### -->
+    <header class="header-area">
+        <!-- Navbar Area -->
+        <div class="musica-main-menu">
+            <div class="classy-nav-container breakpoint-off">
+                <div class="container-fluid">
+                    <!-- Menu -->
+                    <nav class="classy-navbar justify-content-between" id="musicaNav">
+
+                        <!-- Nav brand -->
+                        <a href="index.html" class="nav-brand"><img src="{{url_for('static',filename='logo.png')}}" alt=""></a>
+
+                        <!-- Navbar Toggler -->
+                        <div class="classy-navbar-toggler">
+                            <span class="navbarToggler"><span></span><span></span><span></span></span>
+                        </div>
+
+                        <!-- Menu -->
+                        <div class="classy-menu">
+
+                            <!-- close btn -->
+                            <div class="classycloseIcon">
+                                <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                            </div>
+
+                            </div>
+                            <!-- Nav End -->
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ##### Header Area End ##### -->
+
+    <!-- ##### Hero Area Start ##### -->
+    <section class="hero-area">
+        <div class="hero-slides owl-carousel">
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                <!-- Slide Img -->
+                {{url_for('static',filename='jquery-3.3.1.min.js')}}
+                <div class="slide-img bg-img" style="background-image: url({{url_for('static',filename='music/bg-1.jpg')}});"></div>
+                <!-- Slide Content -->
+                <div class="hero-slides-content text-center">
+                    <h2 data-animation="fadeInUp" data-delay="100ms">Music<span>Musica</span></h2>
+                    <p data-animation="fadeInUp" data-delay="300ms">We Play Songs For You...!</p>
+                </div>
+                <!-- Big Text -->
+                <h2 class="big-text">Musica</h2>
+            </div>
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                <!-- Slide Img -->
+                <div class="slide-img bg-img" style="background-image: url({{url_for('static',filename='music/bg-2.jpg')}});"></div>
+                <!-- Slide Content -->
+                <div class="hero-slides-content text-center">
+                    <h2 data-animation="fadeInUp" data-delay="100ms">Music<span>Musica</span></h2>
+                    <p data-animation="fadeInUp" data-delay="300ms">Some people are worth melting for</p>
+                </div>
+                <!-- Big Text -->
+                <h2 class="big-text">Colorlib</h2>
+            </div>
+
+            <!-- Single Hero Slide -->
+            <div class="single-hero-slide d-flex align-items-center justify-content-center">
+                <!-- Slide Img -->
+                <div class="slide-img bg-img" style="background-image: url({{url_for('static',filename='music/bg-3.jpg')}});"></div>
+                <!-- Slide Content -->
+                <div class="hero-slides-content text-center">
+                    <h2 data-animation="fadeInUp" data-delay="100ms">Music<span>Musica</span></h2>
+                    <p data-animation="fadeInUp" data-delay="300ms">Where words fail, music speaks</p>
+                </div>
+                <!-- Big Text -->
+                <h2 class="big-text">Festival</h2>
+            </div>
+
+        </div>
+        <!-- bg gradients -->
+        <div class="bg-gradients"></div>
+
+        <!-- Slide Down -->
+        <div class="slide-down" id="scrollDown">
+            <h6>Slide Down</h6>
+            <div class="line"></div>
+        </div>
+    </section>
+    <!-- ##### Hero Area End ##### -->
+
+    <!-- ##### About Us Area Start ##### -->
+    <div class="about-us-area section-padding-100-0 bg-img bg-overlay" style="background-image: url({{url_for('static',filename='music/background.jpg')}});" id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>Artist Bio</h2>
+                        <h6>"Jeevna tonic bottli,kudiyo munche alladsu Body-na hindke mundke Myale Kelage Alladsu"</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- About Thumbnail -->
+                <div class="col-12 col-lg-6">
+                    <div class="about-thumbnail mb-100">
+                        <img src="/static/music/{{aid}}.jpg" alt="">
+                    </div>
+                </div>
+                <!-- About Content -->
+                <div class="col-12 col-lg-6">
+                    <div class="about-content mb-100">
+                        <h4>Hello, It’s {{artist['Name']}}</h4>
+                        <p>{{artist['About']}}</p>
+                        <img src="{{url_for('static',filename='signature.png')}}" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### About Us Area End ##### -->
+
+    <!-- ##### Upcoming Shows Area Start ##### -->
+    <div class="upcoming-shows-area section-padding-100">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h2>Upcoming Wedding Sessions</h2>
+                        <h6>"Chendutiya Pakkadali Tumba Hattira Nintu Guri Ittu Kadigeya Bott Idlaaa</h6>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <!-- Upcoming Shows Content -->
+                    <div class="upcoming-shows-content">
+
+                        <!-- Single Upcoming Shows -->
+                        <div class="single-upcoming-shows d-flex align-items-center flex-wrap">
+                            <div class="shows-date">
+                                <h2>17 <span>July</span></h2>
+                            </div>
+                            <div class="shows-desc d-flex align-items-center">
+                                <div class="shows-img">
+                                    <img src="{{url_for('static',filename='s1.jpg')}}" alt="">
+                                </div>
+                                <div class="shows-name">
+                                    <h6>Bul Bull</h6>
+                                    <p>D Boss</p>
+                                </div>
+                            </div>
+                            <div class="shows-location">
+                                <p>Tumkur</p>
+                            </div>
+                            <div class="shows-time">
+                                <p>20:30</p>
+                            </div>
+                            <div class="buy-tickets">
+                                <a href="#" class="btn musica-btn">Visit</a>
+                            </div>
+                        </div>
+
+                        <!-- Single Upcoming Shows -->
+                        <div class="single-upcoming-shows d-flex align-items-center flex-wrap">
+                            <div class="shows-date">
+                                <h2>23 <span>July</span></h2>
+                            </div>
+                            <div class="shows-desc d-flex align-items-center">
+                                <div class="shows-img">
+                                    <img src="{{url_for('static',filename='s2.jpg')}}" alt="">
+                                </div>
+                                <div class="shows-name">
+                                    <h6>Mugulu Nage</h6>
+                                    <p>Ganesh</p>
+                                </div>
+                            </div>
+                            <div class="shows-location">
+                                <p>Main Stadium,B'lore</p>
+                            </div>
+                            <div class="shows-time">
+                                <p>21:30</p>
+                            </div>
+                            <div class="buy-tickets">
+                                <a href="#" class="btn musica-btn">Visit</a>
+                            </div>
+                        </div>
+
+                        <!-- Single Upcoming Shows -->
+                        <div class="single-upcoming-shows d-flex align-items-center flex-wrap">
+                            <div class="shows-date">
+                                <h2>25 <span>July</span></h2>
+                            </div>
+                            <div class="shows-desc d-flex align-items-center">
+                                <div class="shows-img">
+                                    <img src="{{url_for('static',filename='s3.jpg')}}" alt="">
+                                </div>
+                                <div class="shows-name">
+                                    <h6>Paramathma</h6>
+                                    <p>Punith Raj Kumar</p>
+                                </div>
+                            </div>
+                            <div class="shows-location">
+                                <p>Mysore</p>
+                            </div>
+                            <div class="shows-time">
+                                <p>20:30</p>
+                            </div>
+                            <div class="buy-tickets">
+                                <a href="#" class="btn musica-btn">Visit</a>
+                            </div>
+                        </div>
+
+                        <!-- Single Upcoming Shows -->
+                        <div class="single-upcoming-shows d-flex align-items-center flex-wrap">
+                            <div class="shows-date">
+                                <h2>30 <span>July</span></h2>
+                            </div>
+                            <div class="shows-desc d-flex align-items-center">
+                                <div class="shows-img">
+                                    <img src="{{url_for('static',filename='s4.jpg')}}" alt="">
+                                </div>
+                                <div class="shows-name">
+                                    <h6>Bell Bottom</h6>
+                                    <p>Rakshith Shetty</p>
+                                </div>
+                            </div>
+                            <div class="shows-location">
+                                <p>Mandya</p>
+                            </div>
+                            <div class="shows-time">
+                                <p>20:30</p>
+                            </div>
+                            <div class="buy-tickets">
+                                <a href="#" class="btn musica-btn">Visit</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Upcoming Shows Area End ##### -->
+
+    <!-- ##### Music Player Area Start ##### -->
+    <div class="music-player-area section-padding-100">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="music-player-slides owl-carousel">
+
+                        <!-- Single Music Player -->
+                        <div class="single-music-player">
+                            <img src="{{url_for('static',filename='mp1.jpg')}}" alt="">
+
+                            <div class="music-info d-flex justify-content-between">
+                                <div class="music-text">
+                                    <h5>Artist’s/Band Name</h5>
+                                    <p>Love is all Around</p>
+                                </div>
+                                <div class="music-play-icon">
+                                    <audio preload="auto" controls>
+                                    <source src="{{url_for('static',filename='audio/1.mp3')}}">
+                                </audio>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Music Player -->
+                        <div class="single-music-player">
+                            <img src="{{url_for('static',filename='mp2.jpg')}}" alt="">
+
+                            <div class="music-info d-flex justify-content-between">
+                                <div class="music-text">
+                                    <h5>Artist’s/Band Name</h5>
+                                    <p>Love is all Around</p>
+                                </div>
+                                <div class="music-play-icon">
+                                    <audio preload="auto" controls>
+                                    <source src="{{url_for('static',filename='audio/2.mp3')}}">
+                                </audio>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Music Player -->
+                        <div class="single-music-player">
+                            <img src="{{url_for('static',filename='mp3.jpg')}}" alt="">
+
+                            <div class="music-info d-flex justify-content-between">
+                                <div class="music-text">
+                                    <h5>Artist’s/Band Name</h5>
+                                    <p>Love is all Around</p>
+                                </div>
+                                <div class="music-play-icon">
+                                    <audio preload="auto" controls>
+                                    <source src="{{url_for('static',filename='audio/3.mp3')}}">
+                                </audio>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Single Music Player -->
+                        <div class="single-music-player">
+                            <img src="{{url_for('static',filename='mp4.jpg')}}" alt="">
+
+                            <div class="music-info d-flex justify-content-between">
+                                <div class="music-text">
+                                    <h5>Artist’s/Band Name</h5>
+                                    <p>Love is all Around</p>
+                                </div>
+                                <div class="music-play-icon">
+                                    <audio preload="auto" controls>
+                                    <source src="{{url_for('static',filename='audio/4.mp3')}}">
+                                </audio>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Music Player Area End ##### -->
+
+    <!-- ##### Featured Album Area Start ##### -->
+    <div class="featured-album-area section-padding-100 clearfix">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="featured-album-content d-flex flex-wrap">
+
+                        <!-- Album Thumbnail -->
+                        <div class="album-thumbnail h-100 bg-img" style="background-image: url(/static/music/{{aid}}.jpg);"></div>
+
+                        <!-- Album Songs -->
+                        <div class="album-songs h-100">
+
+                            <!-- Album Info -->
+                            <div class="album-info mb-50 d-flex flex-wrap align-items-center justify-content-between">
+                                <div class="album-title">
+                                    <h6>Featured album</h6>
+                                    <h4>Love is all Around</h4>
+                                </div>
+                                <div class="album-buy-now">
+                                    <a href="#" class="btn musica-btn">Buy it on Itunes</a>
+                                </div>
+                            </div>
+
+                            <div class="album-all-songs">
+
+                                <!-- Music Playlist -->
+                                <div class="music-playlist">
+                                    <!-- Single Song -->
+                                    <div class="single-music active">
+                                        <h6>Madarangi yalli</h6>
+                                        <audio preload="auto" controls>
+                                            <source src="{{url_for('static',filename='audio/5.mp3')}}">
+                                        </audio>
+                                    </div>
+
+                                    <!-- Single Song -->
+                                    <div class="single-music">
+                                        <h6>Neenendare nanolage</h6>
+                                        <audio preload="auto" controls>
+                                            <source src="{{url_for('static',filename='audio/6.mp3')}}">
+                                        </audio>
+                                    </div>
+
+                                    <!-- Single Song -->
+                                    <div class="single-music">
+                                        <h6>Matinalli helalarenu</h6>
+                                        <audio preload="auto" controls>
+                                            <source src="{{url_for('static',filename='audio/7.mp3')}}">
+                                        </audio>
+                                    </div>
+
+                                    <!-- Single Song -->
+                                    <div class="single-music">
+                                        <h6>Nee sanihake bandare</h6>
+                                        <audio preload="auto" controls>
+                                            <source src="{{url_for('static',filename='audio/8.mp3')}}">
+                                        </audio>
+                                    </div>
+
+                                    <!-- Single Song -->
+                                    <div class="single-music">
+                                        <h6>Anisuthide yako yenu</h6>
+                                        <audio preload="auto" controls>
+                                            <source src="{{url_for('static',filename='audio/9.mp3')}}">
+                                        </audio>
+                                    </div>
+                                    <div class="single-music">
+                                        <h6>Kan kanasalige</h6>
+                                        <audio preload="auto" controls>
+                                            <source src="{{url_for('static',filename='audio/10.mp3')}}">
+                                        </audio>
+                                    </div>
+
+<!--  -->
+                                </div>
+                            </div>
+
+                            <!-- Now Playing -->
+                            <div class="now-playing d-flex flex-wrap align-items-center justify-content-between">
+                                <div class="songs-name">
+                                    <p>Playing</p>
+                                    <h6>Drop that beat</h6>
+                                </div>
+                                <audio preload="auto" controls>
+                                    <source src="{{url_for('static',filename='audio/1.mp3')}}">
+                                </audio>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Featured Album Area End ##### -->
+
+    <!-- ##### Music Artists Area Start ##### -->
+    <div class="musica-music-artists-area d-flex flex-wrap clearfix">
+        <!-- Music Search -->
+        <div class="music-search bg-img bg-overlay2 wow fadeInUp" data-wow-delay="300ms" style="background-image: url({{url_for('static',filename='music/bg-9.jpg')}});">
+            <!-- Content -->
+            <div class="music-search-content">
+                <h2>Music</h2>
+                <h4>Search for the best music</h4>
+            </div>
+        </div>
+
+        <!-- Artists Search -->
+        <div class="artists-search bg-img bg-overlay2 wow fadeInUp" data-wow-delay="600ms" style="background-image: url({{url_for('static',filename='music/bg-1.jpg')}});">
+            <!-- Content -->
+            <div class="music-search-content">
+                <h2>Artists</h2>
+                <h4>Search for the best artists</h4>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Music Artists Area End ##### -->
+    <!-- ##### Footer Area Start ##### -->
+                <!-- ##### Tabs ##### -->
+                <div class="col-12 col-lg-6">
+                    <div class="musica-tabs-content">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item">
+                                <a class="nav-link" id="tab--1" data-toggle="tab" href="#tab1" role="tab" aria-controls="tab1" aria-selected="false">Early life</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" id="tab--2" data-toggle="tab" href="#tab2" role="tab" aria-controls="tab2" aria-selected="false">Career</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" id="tab--3" data-toggle="tab" href="#tab3" role="tab" aria-controls="tab3" aria-selected="true">Lyricist</a>
+                            </li>
+                        </ul>
+
+                        <div class="tab-content mb-100" id="myTabContent">
+                            <div class="tab-pane fade" id="tab1" role="tabpanel" aria-labelledby="tab--1">
+                                <div class="musica-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="musica-tab-text">
+                                        <p><span>1.</span>{{artist['Early Life']}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade" id="tab2" role="tabpanel" aria-labelledby="tab--2">
+                                <div class="musica-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="musica-tab-text">
+                                        <p><span>2.</span>{{artist['Career']}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane fade show active" id="tab3" role="tabpanel" aria-labelledby="tab--3">
+                                <div class="musica-tab-content">
+                                    <!-- Tab Text -->
+                                    <div class="musica-tab-text">
+                                        <p><span>3.</span>{{artist['Lyricist']}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Loaders ========== -->
+                <div class="col-12">
+                    <div class="elements-title mb-50">
+                        <h2>Loaders</h2>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <!-- Loaders Area Start -->
+                    <div class="our-skills-area">
+                        <div class="row">
+
+                            <!-- Single Skills Area -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-skils-area mb-100">
+                                    <div id="circle" class="circle" data-value="0.75">
+                                        <div class="skills-text">
+                                            <span>75%</span>
+                                        </div>
+                                    </div>
+                                    <h5>Festivals</h5>
+                                </div>
+                            </div>
+
+                            <!-- Single Skills Area -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-skils-area mb-100">
+                                    <div id="circle2" class="circle" data-value="0.83">
+                                        <div class="skills-text">
+                                            <span>83%</span>
+                                        </div>
+                                    </div>
+                                    <h5>Concerts</h5>
+                                </div>
+                            </div>
+
+                            <!-- Single Skills Area -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-skils-area mb-100">
+                                    <div id="circle3" class="circle" data-value="0.25">
+                                        <div class="skills-text">
+                                            <span>25%</span>
+                                        </div>
+                                    </div>
+                                    <h5>Conference</h5>
+                                </div>
+                            </div>
+
+                            <!-- Single Skills Area -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-skils-area mb-100">
+                                    <div id="circle4" class="circle" data-value="0.82">
+                                        <div class="skills-text">
+                                            <span>82%</span>
+                                        </div>
+                                    </div>
+                                    <h5>New artists</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Milestones ========== -->
+                <div class="col-12">
+                    <div class="elements-title mb-50">
+                        <h2>Milestone</h2>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="musica-cool-facts-area">
+                        <div class="row">
+
+                            <!-- Single Cool Facts -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-cool-fact d-flex align-items-end mb-100">
+                                    <div class="scf-icon">
+                                        <img src="{{url_for('static',filename='microphone.png')}}" alt="">
+                                    </div>
+                                    <div class="scf-text">
+                                        <h2><span class="counter">149</span></h2>
+                                        <p>Concerts/Year</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Cool Facts -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-cool-fact d-flex align-items-end mb-100">
+                                    <div class="scf-icon">
+                                        <img src="{{url_for('static',filename='compact-disc.png')}}" alt="">
+                                    </div>
+                                    <div class="scf-text">
+                                        <h2><span class="counter">439</span>k</h2>
+                                        <p>Cd’s Sold</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Cool Facts -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-cool-fact d-flex align-items-end mb-100">
+                                    <div class="scf-icon">
+                                        <img src="{{url_for('static',filename='controls.png')}}" alt="">
+                                    </div>
+                                    <div class="scf-text">
+                                        <h2><span class="counter">245</span></h2>
+                                        <p>Amazing Ideas</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Single Cool Facts -->
+                            <div class="col-12 col-sm-6 col-lg-3">
+                                <div class="single-cool-fact d-flex align-items-end mb-100">
+                                    <div class="scf-icon">
+                                        <img src="{{url_for('static',filename='calendar.png')}}" alt="">
+                                    </div>
+                                    <div class="scf-text">
+                                        <h2><span class="counter">128</span></h2>
+                                        <p>Calendar Events</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ========== Icon Boxes ========== -->
+                <div class="col-12">
+                    <div class="elements-title mb-50">
+                        <h2>Icon Boxes</h2>
+                    </div>
+                </div>
+
+                <div class="col-12">
+                    <div class="row">
+
+                        <!-- Single Service Area -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="single-service-area mb-100">
+                                <div class="course-title d-flex align-items-end">
+                                    <span>01</span>
+                                    <h4>Great Services</h4>
+                                </div>
+                                <p>{{artist['Services']}}</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Service Area -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="single-service-area mb-100">
+                                <div class="course-title d-flex align-items-end">
+                                    <span>02</span>
+                                    <h4>Amazing Music</h4>
+                                </div>
+                                <p>{{artist['Music']}}</p>
+                            </div>
+                        </div>
+
+                        <!-- Single Service Area -->
+                        <div class="col-12 col-sm-6 col-lg-4">
+                            <div class="single-service-area mb-100">
+                                <div class="course-title d-flex align-items-end">
+                                    <span>03</span>
+                                    <h4>Great Services</h4>
+                                </div>
+                                <p>{{artist['Services']}}</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- ***** Elements Area End ***** -->
+
+    <!-- ##### CTA Area Start ##### -->
+    <div class="musica-cta-area section-padding-100 bg-img bg-overlay2" style="background-image: url({{url_for('static',filename='music/4.jpg')}});">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="cta-content d-flex justify-content-between align-items-center">
+                        <div class="cta-text">
+                            <h4>Register now</h4>
+                            <h2>I Would Love To Have This</h2>
+                            <h2>{{artist['Rate']}}</h2>
+                        </div>
+                        <div class="cta-btn">
+                            <a onclick="submit();" class="btn musica-btn">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### CTA Area End ##### -->
+    <script src="{{url_for('static',filename='jquery-2.2.4.min.js')}}"></script>
+    <script src="{{url_for('static',filename='popper.min.js')}}"></script>
+    <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+    <script src="{{url_for('static',filename='plugins.js')}}"></script>
+    <script src="{{url_for('static',filename='active.js')}}"></script>
+</body>
+<script type="text/javascript">
+      var config = {
+      apiKey: "AIzaSyC1L40FBdKUsGuXf6rC9WQ2gC2kAJgaI8M",
+      authDomain: "event-ab123.firebaseapp.com",
+      databaseURL: "https://event-ab123.firebaseio.com",
+      projectId: "event-ab123",
+      storageBucket: "event-ab123.appspot.com",
+      messagingSenderId: "440965100648"
+  };
+  firebase.initializeApp(config);
+  var email=getCookie('email');
+  var password=getCookie('password');
+  var user;
+  var ref;
+  firebase.auth().signInWithEmailAndPassword(email,password).catch(function(error) {
+      window.location.href="login"
+  }).then(function() {
+    user=firebase.auth().currentUser.uid;
+  });
+      function submit() 
+      {
+        user=firebase.auth().currentUser.uid;
+        ref=firebase.database().ref('users/'+user+'/music')
+        ref.set({
+          'aid':'{{aid}}'
+        }).then(function() {
+          alert('Artist Reserved');
+          window.location.href="/dress";
+        })
+      }
+    </script>
+</html>

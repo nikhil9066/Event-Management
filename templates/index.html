@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Photos</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Sans:300i,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{url_for('static',filename='photo_style.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='lightgallery.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='bootstrap-datepicker.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='swiper.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='aos.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='flaticon.css')}}">
+    <link rel="stylesheet" href="{{url_for('static',filename='photographerstyle.css')}}">
+    
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+    <header class="site-navbar py-3" role="banner">
+
+      <div class="container-fluid">
+        <div class="row align-items-center">
+          
+          <div class="col-6 col-xl-2" data-aos="fade-down">
+            <h1 class="mb-0"><a href="index.html" class="text-black h2 mb-0">Select your Photographer</a></h1>
+    
+    </header>
+
+
+
+  <div class="container-fluid" data-aos="fade" data-aos-delay="500">
+    <div class="swiper-container images-carousel">
+        <div class="swiper-wrapper">
+
+          {% for photographer in photographers %}
+            <div class="swiper-slide">
+              <div class="image-wrap">
+                <div class="image-info">
+                  <h2 class="mb-3">{{photographers[photographer]['Name']}}</h2>
+                  <a href="single/{{photographer}}" class="btn btn-outline-white py-2 px-4">More Photos</a>
+                </div>
+                <img src="/static/photos/photo{{photographer}}.jpg" alt="Image">
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-scrollbar"></div>
+    </div>
+  </div>
+
+  <div class="footer py-4">
+    <div class="container-fluid">
+    
+    </div>
+  </div> 
+  </div>
+
+
+  <script src="{{url_for('static',filename='jquery-3.3.1.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery-migrate-3.0.1.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery-ui.js')}}"></script>
+  <script src="{{url_for('static',filename='popper.min.js')}}"></script>
+  <script src="{{url_for('static',filename='bootstrap.min.js')}}"></script>
+  <script src="{{url_for('static',filename='owl.carousel.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.stellar.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.countdown.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.magnific-popup.min.js')}}"></script>
+  <script src="{{url_for('static',filename='bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{url_for('static',filename='swiper.min.js')}}"></script>
+  <script src="{{url_for('static',filename='aos.js')}}"></script>
+
+  <script src="{{url_for('static',filename='picturefill.min.js')}}"></script>
+  <script src="{{url_for('static',filename='lightgallery-all.min.js')}}"></script>
+  <script src="{{url_for('static',filename='jquery.mousewheel.min.js')}}"></script>
+
+  <script src="{{url_for('static',filename='main.js')}}"></script>
+  
+  <script>
+    $(document).ready(function(){
+      $('#lightgallery').lightGallery();
+    });
+  </script>
+    
+  </body>
+</html>

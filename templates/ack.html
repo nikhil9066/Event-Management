@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Acknowledgment</title>
+	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='bigtable.css')}}">
+	<style>
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  justify-content: center;
+  display: flex;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 200px 800px;
+  width: 200px;
+  -webkit-transition-duration: 0.4s; /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}</style>
+</head>
+<body>
+	<h1 style="font-size: 60px; text-align: center;">Acknowledgment</h1>
+	<table>
+		<thead style="font-size: 30px;">
+			<tr>
+				<th>Commodity</th>
+				<th>Qty</th>
+				<th>Unit Price</th>
+				<th>Rate</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td colspan="3"><b>Convention Center:<br>{{alldata['conventions'][data['convention']['cid']]['Name']}}</b></td>
+				<td><b class="totalamt">{{data['convention']['rate']}}</b></td>
+			</tr>
+			<tr onclick="expandphoto();">
+				<td colspan="3"><b>Photographer:<br>{{alldata['photographers'][data['photo']['pid']]['Name']}}</b></td>
+				<td><b id="photoratesum" class="totalamt"></b></td>
+			</tr>
+			{% for rate in alldata['photographers'][data['photo']['pid']]['Rates'] %}
+				<tr class="phototr" style="display: none;">
+					<td colspan="2">{{rate}}</td>
+					<td class="photorates">{{alldata['photographers'][data['photo']['pid']]['Rates'][rate]}}</td>
+					<td></td>
+				</tr>
+			{% endfor %}
+			<tr>
+				<td colspan="3"><b>Music Artist:<br>{{alldata['artists'][data['music']['aid']]['Name']}}</b></td>
+				<td><b class="totalamt">{{alldata['artists'][data['music']['aid']]['Rate']}}</b></td>
+			</tr>
+			<tr onclick="expanddress();">
+				<td colspan="3"><b>Dresses</b></td>
+				<td><b id="dressratesum" class="totalamt"></b></td>
+			</tr>
+			{% for dress in data['dresses']%}
+				<tr style="display: none;" class="dresstr">
+					<td>{{data['dresses'][dress]['dress']}}</td>
+					<td class="dressqty">{{data['dresses'][dress]['qty']}}</td>
+					<td class="dressurate">{{data['dresses'][dress]['rate']}}</td>
+					<td class="dressrate"></td>
+				</tr>
+			{% endfor %}
+			<tr onclick="expandfood();">
+				<td><b>Caterer:<br>{{alldata['caterers'][data['food']['cid']]['Name']}}</b></td>
+				<td><b id="peoplecount">{{data['peoplecount']}}</b></td>
+				<td><b id="fooduratesum"></b></td>
+				<td><b id="foodratesum" class="totalamt"></b></td>
+			</tr>
+			<tr class="foodtr" style="display: none;"><td colspan="4"><b>Breakfast</b></td></tr>
+			{% for food in data['food']['breakfast'] %}
+				<tr class="foodtr" style="display: none;">
+					<td>{{food}}</td>
+					<td></td>
+					<td class="foodurate">{{data['food']['breakfast'][food]}}</td>
+					<td></td>
+				</tr>
+			{% endfor %}
+			<tr class="foodtr" style="display: none;"><td colspan="4"><b>Lunch</b></td></tr>
+			{% for food in data['food']['lunch'] %}
+				<tr class="foodtr" style="display: none;">
+					<td>{{food}}</td>
+					<td></td>
+					<td class="foodurate">{{data['food']['lunch'][food]}}</td>
+					<td></td>
+				</tr>
+			{% endfor %}
+			<tr class="foodtr" style="display: none;"><td colspan="4"><b>Snacks</b></td></tr>
+			{% for food in data['food']['snacks'] %}
+				<tr class="foodtr" style="display: none;">
+					<td>{{food}}</td>
+					<td></td>
+					<td class="foodurate">{{data['food']['snacks'][food]}}</td>
+					<td></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+		<tfoot style="font-size: 30px;">
+			<tr>
+				<th colspan="3"><b>Grand Total:</b></th>
+				<th><b id="grandtotal"></b></th>
+			</tr>
+		</tfoot>
+	</table>
+	<!-- <button onclick="window.location.href='/payment'">Pay</button> -->
+	<button class="button button1" onclick="window.location.href='/payment'">Pay Now</button>
+
+</body>
+<script type="text/javascript">
+	rates=document.getElementsByClassName('photorates');
+	ratesum=0
+	for(i=0;i<rates.length;i++)
+		ratesum+=parseInt(rates[i].innerHTML)
+	document.getElementById('photoratesum').innerHTML=ratesum;
+	unitrates=document.getElementsByClassName('dressurate');
+	qtys=document.getElementsByClassName('dressqty');
+	rates=document.getElementsByClassName('dressrate');
+	ratesum=0
+	for(i=0;i<unitrates.length;i++)
+	{
+		rate=parseInt(qtys[i].innerHTML)*parseInt(unitrates[i].innerHTML.slice(1))
+		rates[i].innerHTML=rate;
+		ratesum+=rate;
+	}
+	document.getElementById('dressratesum').innerHTML=ratesum;
+	unitrates=document.getElementsByClassName('foodurate');
+	ratesum=0;
+	for(i=0;i<unitrates.length;i++)
+		ratesum+=parseInt(unitrates[i].innerHTML);
+	document.getElementById('fooduratesum').innerHTML=ratesum;
+	document.getElementById('foodratesum').innerHTML=parseInt(document.getElementById('peoplecount').innerHTML)*ratesum;
+	ratesum=0;
+	rates=document.getElementsByClassName('totalamt');
+	for(i=0;i<rates.length;i++)
+		ratesum+=parseInt(rates[i].innerHTML);
+	document.getElementById('grandtotal').innerHTML=ratesum;
+	function expandphoto()
+	{
+		trs=document.getElementsByClassName('phototr');
+		for(i=0;i<trs.length;i++)
+		{
+			if(trs[i].style.display=='none')
+				trs[i].style.display=''
+			else
+				trs[i].style.display='none'
+		}
+	}
+
+	function expanddress() 
+	{
+		trs=document.getElementsByClassName('dresstr');
+		for(i=0;i<trs.length;i++)
+		{
+			if(trs[i].style.display=='none')
+				trs[i].style.display=''
+			else
+				trs[i].style.display='none'
+		}
+	}
+
+	function expandfood() 
+	{
+		trs=document.getElementsByClassName('foodtr');
+		for(i=0;i<trs.length;i++)
+		{
+			if(trs[i].style.display=='none')
+				trs[i].style.display=''
+			else
+				trs[i].style.display='none'
+		}
+	}
+</script>
+</html>

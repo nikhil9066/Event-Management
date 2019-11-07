@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html class="no-js"> 
+	<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Invitation Card</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="Free HTML5 Template by FREEHTML5.CO" />
+	<meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
+	<meta name="author" content="FREEHTML5.CO" />
+	<meta property="og:title" content=""/>
+	<meta property="og:image" content=""/>
+	<meta property="og:url" content=""/>
+	<meta property="og:site_name" content=""/>
+	<meta property="og:description" content=""/>
+	<meta name="twitter:title" content="" />
+	<meta name="twitter:image" content="" />
+	<meta name="twitter:url" content="" />
+	<meta name="twitter:card" content="" />
+
+	<link href='https://fonts.googleapis.com/css?family=Work+Sans:400,300,600,400italic,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="{{url_for('static',filename='invitation/css/animate.css')}}">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="{{url_for('static',filename='invitation/css/icomoon.css')}}">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="{{url_for('static',filename='invitation/css/bootstrap.css')}}">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="{{url_for('static',filename='invitation/css/magnific-popup.css')}}">
+	<!-- Owl Carousel  -->
+	<link rel="stylesheet" href="{{url_for('static',filename='invitation/css/owl.carousel.min.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='invitation/css/owl.theme.default.min.css')}}">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="{{url_for('static',filename='invitation/css/style.css')}}">
+	<!-- Modernizr JS -->
+	<script src="{{url_for('static',filename='invitation/js/modernizr-2.6.2.min.js')}}"></script>
+
+	</head>
+	<body>
+		
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2">
+					<div id="fh5co-logo"><a href="index.html">Invitation<strong>.</strong></a></div>
+				</div>
+				<div class="col-xs-10 text-right menu-1">
+				</div>
+			</div>
+		</div>
+	</nav>
+
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url({{url_for('static',filename='invitation/images/4.jpg')}});" data-stellar-background-ratio="0.5">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1>{{data['users'][uid]['groomname']}} &amp; {{data['users'][uid]['bridename']}}</h1>
+							<h2>We Are Getting Married</h2>
+							<div class="simply-countdown simply-countdown-one"></div>
+							<p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="fh5co-couple">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<h2>Hello!</h2>
+					<h3 id="date">{{data['users'][uid]['place']}}, Karnataka</h3>
+					<p>We invited you to celebrate our wedding</p>
+				</div>
+			</div>
+			<div class="couple-wrap animate-box">
+				<div class="couple-half">
+					<div class="groom">
+						<img src="{{data['users'][uid]['groomimgurl']}}" alt="groom" class="img-responsive">
+					</div>
+					<div class="desc-groom">
+						<h3>{{data['users'][uid]['groomname']}}</h3>
+						<p>Happy is the man who finds a true friend, and far happier is he who finds that true friend in his wife.</p>
+					</div>
+				</div>
+				<p class="heart text-center"><i class="icon-heart2"></i></p>
+				<div class="couple-half">
+					<div class="bride">
+						<img src="{{data['users'][uid]['brideimgurl']}}" alt="groom" class="img-responsive">
+					</div>
+					<div class="desc-bride">
+						<h3>{{data['users'][uid]['bridename']}}</h3>
+						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="fh5co-event" class="fh5co-bg" style="background-image:url({{url_for('static',filename='invitation/images/5.jpg')}}">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+					<span>Our Special Events</span>
+					<h2>Wedding Events</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="display-t">
+					<div class="display-tc">
+						<div class="col-md-10 col-md-offset-1">
+							<div class="col-md-6 col-sm-6 text-center">
+								<div class="event-wrap animate-box">
+									<h3>Main Ceremony</h3>
+									<div class="event-col">
+										<i class="icon-clock"></i>
+										<span>4:00 PM</span>
+										<span>6:00 PM</span>
+									</div>
+									<div class="event-col">
+										<i class="icon-calendar"></i>
+										<span id="mardate"></span>
+										<span id="marmonth">November, 2016</span>
+									</div>
+									<p>Info of the bride.</p>
+								</div>
+							</div>
+							<div class="col-md-6 col-sm-6 text-center">
+								<div class="event-wrap animate-box">
+									<h3>Wedding Party</h3>
+									<div class="event-col">
+										<i class="icon-clock"></i>
+										<span>7:00 PM</span>
+										<span>12:00 AM</span>
+									</div>
+									<div class="event-col">
+										<i class="icon-calendar"></i>
+										<span id="repdate">Monday 28</span>
+										<span id="repmonth">November, 2016</span>
+									</div>
+									<p>Info of the bride groom.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+		<div id="fh5co-testimonial">
+		<div class="container">
+			<div class="row">
+				<div class="row animate-box">
+					<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+						<span>Best Wishes</span>
+						<h2>Friends Wishes</h2>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12 animate-box">
+						<div class="wrap-testimony">
+							<div class="owl-carousel-fullwidth">
+								<div class="item">
+									<div class="testimony-slide active text-center">
+										<figure>
+											<img src="{{url_for('static',filename='invitation/images/1.jpg')}}" alt="user">
+										</figure>
+										<span>Nikhil P Rao</span>
+										<blockquote>
+											<p>"Love, care, support, kindness, patience and understating are values that sustain a happy and healthy family. That’s why I want to wish you all of the above. May your family prosper and be a role model! Congratulations on your wedding!"</p>
+										</blockquote>
+									</div>
+								</div>
+								<div class="item">
+									<div class="testimony-slide active text-center">
+										<figure>
+											<img src="{{url_for('static',filename='invitation/images/2.jpg')}}" alt="user">
+										</figure>
+										<span>Nishanth P</span>
+										<blockquote>
+											<p>"Lies, distortions, indifference and cheating – may all this horrible words stay out of your home! Family is a great thing and I wish you to enjoy being a member of it every minute of your life. Congratulations!."</p>
+										</blockquote>
+									</div>
+								</div>
+								<div class="item">
+									<div class="testimony-slide active text-center">
+										<figure>
+											<img src="{{url_for('static',filename='invitation/images/3.jpg')}}" alt="user">
+										</figure>
+										<span>Rakshith R</span>
+										<blockquote>
+											<p>"Far far away, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean."</p>
+										</blockquote>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="fh5co-counter" class="fh5co-bg fh5co-counter" style="background-image:url({{url_for('static',filename='invitation/images/6.jpg')}});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="display-t">
+					<div class="display-tc">
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-users"></i>
+								</span>
+
+								<span class="counter js-counter" data-from="0" data-to="500" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">Estimated Guest</span>
+
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-user"></i>
+								</span>
+
+								<span class="counter js-counter" data-from="0" data-to="1000" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">We Catter</span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-calendar"></i>
+								</span>
+								<span class="counter js-counter" data-from="0" data-to="402" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">EVENTS DONE</span>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-6 animate-box">
+							<div class="feature-center">
+								<span class="icon">
+									<i class="icon-clock"></i>
+								</span>
+
+								<span class="counter js-counter" data-from="0" data-to="48" data-speed="5000" data-refresh-interval="50">1</span>
+								<span class="counter-label">Hours Spent</span>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="fh5co-services" class="fh5co-section-gray">
+		<div class="container">
+			
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>We Offer Services</h2>
+					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-6">
+					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+						<span class="icon">
+							<i class="icon-calendar"></i>
+						</span>
+						<div class="feature-copy">
+							<h3>We Organized Events</h3>
+							<p> “Typically Plans are nothing. Planning is everything.” .</p>
+						</div>
+					</div>
+
+					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+						<span class="icon">
+							<i class="icon-image"></i>
+						</span>
+						<div class="feature-copy">
+							<h3>Photoshoot</h3>
+							<p>When words become unclear, I shall focus with photographs. When images become inadequate, I shall be content with silence.</p>
+						</div>
+					</div>
+
+					<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+						<span class="icon">
+							<i class="icon-video"></i>
+						</span>
+						<div class="feature-copy">
+							<h3>Video Editing</h3>
+							<p>Every action that we take has some motivation of either being selfish or altruistic. All that adds up.</p>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="col-md-6 animate-box">
+					<div class="fh5co-video fh5co-bg" style="background-image: url({{url_for('static',filename='invitation/images/7.jpg')}}); ">
+						<a href="https://vimeo.com/channels/staffpicks/93951774" class="popup-vimeo"><i class="icon-video2"></i></a>
+						<div class="overlay"></div>
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+
+
+	<div id="fh5co-started" class="fh5co-bg" style="background-image:url({{url_for('static',filename='invitation/images/5.jpg')}});">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Are You Attending?</h2>
+					<p>Please Fill-up the form to notify you that you're attending. Thanks.</p>
+				</div>
+			</div>
+			<div class="row animate-box">
+				<div class="col-md-10 col-md-offset-1">
+					<form class="form-inline">
+						<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+								<label for="name" class="sr-only">Name</label>
+								<input type="name" class="form-control" id="name" placeholder="Name">
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<div class="form-group">
+								<label for="email" class="sr-only">Email</label>
+								<input type="email" class="form-control" id="email" placeholder="Email">
+							</div>
+						</div>
+						<div class="col-md-4 col-sm-4">
+							<button type="submit" class="btn btn-default btn-block">I am Attending</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="/final"><i class="icon-arrow-right"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="{{url_for('static',filename='invitation/js/jquery.min.js')}}"></script>
+	<!-- jQuery Easing -->
+	<script src="{{url_for('static',filename='invitation/js/jquery.easing.1.3.js')}}"></script>
+	<!-- Bootstrap -->
+	<script src="{{url_for('static',filename='invitation/js/bootstrap.min.js')}}"></script>
+	<!-- Waypoints -->
+	<script src="{{url_for('static',filename='invitation/js/jquery.waypoints.min.js')}}"></script>
+	<!-- Carousel -->
+	<script src="{{url_for('static',filename='invitation/js/owl.carousel.min.js')}}"></script>
+	<!-- countTo -->
+	<script src="{{url_for('static',filename='invitation/js/jquery.countTo.js')}}"></script>
+
+	<!-- Stellar -->
+	<script src="{{url_for('static',filename='invitation/js/jquery.stellar.min.js')}}"></script>
+	<!-- Magnific Popup -->
+	<script src="{{url_for('static',filename='invitation/js/jquery.magnific-popup.min.js')}}"></script>
+	<script src="{{url_for('static',filename='invitation/js/magnific-popup-options.js')}}"></script>
+	<script src="{{url_for('static',filename='invitation/js/simplyCountdown.js')}}"></script>
+	<!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
+	<!-- Main -->
+	<script src="{{url_for('static',filename='invitation/js/main.js')}}"></script>
+
+	<script>
+    var d = new Date('{{data['users'][uid]['date']}}');
+    datestr=d.toString().split(' ');
+    document.getElementById('date').innerHTML=datestr[0]+' '+datestr[1]+' '+datestr[2]+' '+datestr[3]+' '+document.getElementById('date').innerHTML
+    document.getElementById('mardate').innerHTML=datestr[0]+' '+datestr[2];
+    document.getElementById('marmonth').innerHTML=datestr[1]+', '+datestr[3];
+    var d1=new Date(d);
+    d1.setDate(d.getDate()+1);
+    datestr1=d1.toString().split(' ');
+    document.getElementById('repdate').innerHTML=datestr1[0]+' '+datestr1[2];
+    document.getElementById('repmonth').innerHTML=datestr1[1]+', '+datestr1[3];
+    // default example
+    simplyCountdown('.simply-countdown-one', {
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate()
+    });
+
+    //jQuery example
+    $('#simply-countdown-losange').simplyCountdown({
+        year: d.getFullYear(),
+        month: d.getMonth() + 1,
+        day: d.getDate(),
+        enableUtc: false
+    });
+</script>
+
+	</body>
+</html>
+

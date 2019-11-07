@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Convension Halls</title>
+      <link rel="stylesheet" href="{{url_for('static',filename='conventionstyle.css')}}">
+</head>
+
+<body style="padding: 0px;">
+  <video id="myvideo" controls style="z-index: -30; position: fixed; width: 100%">
+    <source src="{{url_for('static',filename='12.mp4')}}" type="video/mp4">
+  </video>
+  <div class="content" style="padding-right: 120px; padding-left: 120px; padding-top: 700px;">
+    <!-- <img src="{{url_for('static',filename='slide-img1.jpg')}}" style="height: 410px; padding: 120px;"  /> -->
+<div class="display">
+  {% for convention in conventions %}
+	<a class="HOVER {{conventions[convention]['Block']}}">
+  <span onclick="window.location.href='/chatra/{{convention}}'"></span>
+    <text>{{conventions[convention]['Name']}}</text>
+  </a>
+  {% endfor %}
+</div>
+    <script  src="{{url_for('static',filename='conventionindex.js')}}"></script>
+    <script type="text/javascript">
+      video=document.getElementById('myvideo');
+      video.play();
+    </script>
+</body>
+</html>

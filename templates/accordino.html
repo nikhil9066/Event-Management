@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Introduction</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  
+      <link rel="stylesheet" href="{{url_for('static',filename='accstyle.css')}}">
+
+  
+</head>
+
+<body>
+
+  
+<ul class="gallery"> 
+  <li class="gallery__item">
+    <figure class="gallery__image" style="background-image:url({{url_for('static',filename='Qw/5.jpg')}});"></figure>
+    <div class="gallery__content">
+      <h2 class="gallery__title">CONVENSION HALL</h2>
+    </div>
+  </li>
+  <li class="gallery__item">
+    <figure class="gallery__image" style="background-image:url({{url_for('static',filename='Qw/1.jpg')}});"></figure>
+    <div class="gallery__content">
+      <h2 class="gallery__title">FOOD</h2>
+    </div>
+  </li>
+  <li class="gallery__item">
+    <figure class="gallery__image" style="background-image:url({{url_for('static',filename='Qw/2.jpg')}});"></figure>
+    <div class="gallery__content">
+      <h2 class="gallery__title">PHOTOGRAPHY</h2>
+    </div>
+  </li>
+  <li class="gallery__item">
+    <figure class="gallery__image" style="background-image:url({{url_for('static',filename='Qw/3.jpg')}});"></figure>
+    <div class="gallery__content">
+      <h2 class="gallery__title">MUSIC/DJ</h2>
+    </div>
+  </li>
+  <li class="gallery__item">
+    <figure class="gallery__image" style="background-image:url({{url_for('static',filename='Qw/4.jpg')}});"></figure>
+    <div class="gallery__content">
+      <h2 class="gallery__title">DRESS</h2>
+    </div>
+  </li>
+</ul>
+  <script src='http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js'></script>
+
+  
+
+    <script  src="{{url_for('static',filename='index.js')}}"></script>
+<meta http-equiv="refresh" content="4;url=/convention" />
+
+
+
+</body>
+
+</html>
